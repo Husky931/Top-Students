@@ -12,5 +12,8 @@ body {
     font-family: "Arial", "Hiragino Sans GB", "STXihei", "华文细黑", "Microsoft Yahei", "微软雅黑", "sans-serif";
   }
   #root {
+    max-width: 1350px;
+    margin-left: auto;
+    margin-right: auto;
     height: 100vh;
   }
