@@ -1,11 +1,13 @@
 import "./App.css"
 import { Login } from "./pages/Login"
+import { Navbar } from "./navigation/navbar"
 
 const App = () => {
   return (
-    <div>
+    <>
+      <Navbar />
       <Login />
-    </div>
+    </>
   )
 }
 
