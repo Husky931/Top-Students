@@ -1,5 +1,5 @@
 import { useState } from "react"
 
 export const Login = () => {
-  return <div>I am Login Page</div>
+  return <h1>Are you a top student?</h1>
 }

@@ -8,6 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/core": "^5.0.0-alpha.54",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.9.3",
     "lingo3d-react": "latest",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
