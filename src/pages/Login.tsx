@@ -3,7 +3,7 @@ import Button from "@mui/material/Button"
 
 export const Login = () => {
   return (
-    <div className="p-4 h-full">
+    <div className="p-4 h-auto max-w-[1350px] mx-auto md:flex-1">
       <div className="md:flex md:items-stretch ">
         <div className="md:flex-1">
           <div className="mb-14 lg:ml-12 font-light">
@@ -21,7 +21,7 @@ export const Login = () => {
             </div>
           </div>
         </div>
-        <div className="md:flex-1">
+        <div className="md:flex-1 my-6">
           <img src="./login.svg" className="h-full" />
         </div>
       </div>
