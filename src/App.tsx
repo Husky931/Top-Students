@@ -1,5 +1,5 @@
 import "./App.css"
-import { Login } from "./pages/Login"
+import { Landing } from "./pages/Landing"
 import Navbar from "./navigation/navbar"
 import { Footer } from "./navigation/Footer"
 
@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <Login />
+      <Landing />
       <Footer />
     </>
   )

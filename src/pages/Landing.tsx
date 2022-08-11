@@ -1,4 +1,4 @@
-export const Login = () => {
+export const Landing = () => {
   return (
     <div className="p-4 h-auto max-w-[1350px] mx-auto md:flex-1">
       <div className="md:flex md:items-stretch ">
