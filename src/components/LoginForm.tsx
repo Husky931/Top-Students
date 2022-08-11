@@ -1,4 +1,5 @@
-import * as React from "react"
+import React, { useContext } from "react"
+import { GlobalData } from "../state/globalState"
 import Button from "@mui/material/Button"
 import TextField from "@mui/material/TextField"
 import Dialog from "@mui/material/Dialog"
@@ -18,12 +19,11 @@ export default function FormDialog() {
     setOpen(false)
   }
 
+  const { openLoginModal } = useContext(GlobalData)
+
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={openLoginModal} onClose={handleClose}>
         <DialogTitle>Subscribe</DialogTitle>
         <DialogContent>
           <DialogContentText>

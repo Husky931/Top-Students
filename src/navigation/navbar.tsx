@@ -1,4 +1,5 @@
-import * as React from "react"
+import React, { useContext, useState } from "react"
+import { GlobalData } from "../state/globalState"
 import Button from "@mui/material/Button"
 import Menu, { MenuProps } from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
@@ -16,6 +17,9 @@ export default function CustomizedMenus(props: any) {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
+  const { setOpenLoginModal } = useContext(GlobalData)
+  // console.log(openLoginModal)
 
   return (
     <div className="w-full p-4 flex justify-end max-w-[1350px] mx-auto">
@@ -46,7 +50,13 @@ export default function CustomizedMenus(props: any) {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem
+          onClick={() => {
+            handleClose()
+            setOpenLoginModal(true)
+          }}
+          disableRipple
+        >
           <SchoolIcon sx={{ marginRight: "2px" }} />
           Top Student
         </MenuItem>
