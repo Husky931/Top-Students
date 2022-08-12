@@ -7,9 +7,17 @@ import DialogActions from "@mui/material/DialogActions"
 import DialogContent from "@mui/material/DialogContent"
 import DialogContentText from "@mui/material/DialogContentText"
 import DialogTitle from "@mui/material/DialogTitle"
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker"
+import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker"
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns"
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
+import { useWindowSize } from "react-use"
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false)
+  const { width, height } = useWindowSize()
+
+  console.log(width)
 
   const handleClickOpen = () => {
     setOpen(true)
@@ -24,21 +32,48 @@ export default function FormDialog() {
   return (
     <div>
       <Dialog open={openLoginModal} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>Step 1 of 5</DialogTitle>
+        <h2 className="text-2xl px-6">Student sign up</h2>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
-          </DialogContentText>
           <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
+            autoComplete="fname"
+            name="firstName"
+            required
             fullWidth
-            variant="standard"
+            id="firstName"
+            label="First Name"
+            autoFocus
+            sx={{ marginBottom: "20px" }}
           />
+          <TextField
+            autoComplete="lname"
+            name="lastName"
+            required
+            fullWidth
+            id="lastName"
+            label="Last Name"
+            autoFocus
+            sx={{ marginBottom: "20px" }}
+          />
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            {width > 840 ? (
+              <DesktopDatePicker
+                label="Date desktop"
+                inputFormat="MM/dd/yyyy"
+                renderInput={(params) => <TextField {...params} />}
+                onChange={() => console.log("1")}
+                sx={{ marginBottom: "20px" }}
+              />
+            ) : (
+              <MobileDatePicker
+                label="Date mobile"
+                inputFormat="MM/dd/yyyy"
+                renderInput={(params) => <TextField {...params} />}
+                onChange={() => console.log("1")}
+                sx={{ marginBottom: "20px" }}
+              />
+            )}
+          </LocalizationProvider>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

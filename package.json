@@ -8,16 +8,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@date-io/date-fns": "1.x",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@mui/core": "^5.0.0-alpha.54",
     "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.94",
     "@mui/material": "^5.9.3",
+    "@mui/x-date-pickers": "^5.0.0-beta.5",
+    "date-fns": "^2.29.1",
     "lingo3d-react": "^1.17.1",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-use": "^17.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.11",
