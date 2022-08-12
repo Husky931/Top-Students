@@ -18,8 +18,7 @@ export default function CustomizedMenus(props: any) {
     setAnchorEl(null)
   }
 
-  const { setOpenLoginModal } = useContext(GlobalData)
-  // console.log(openLoginModal)
+  const { setStudentSignUpModal } = useContext(GlobalData)
 
   return (
     <div className="w-full p-4 flex justify-end max-w-[1350px] mx-auto">
@@ -53,7 +52,7 @@ export default function CustomizedMenus(props: any) {
         <MenuItem
           onClick={() => {
             handleClose()
-            setOpenLoginModal(true)
+            setStudentSignUpModal(true)
           }}
           disableRipple
         >

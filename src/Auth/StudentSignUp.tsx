@@ -13,25 +13,17 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { useWindowSize } from "react-use"
 
-export default function FormDialog() {
-  const [open, setOpen] = React.useState(false)
+export default function StudentSignUp() {
   const { width, height } = useWindowSize()
 
-  console.log(width)
-
-  const handleClickOpen = () => {
-    setOpen(true)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
-  }
-
-  const { openLoginModal } = useContext(GlobalData)
+  const { studentSignUpModal, setStudentSignUpModal } = useContext(GlobalData)
 
   return (
     <div>
-      <Dialog open={openLoginModal} onClose={handleClose}>
+      <Dialog
+        open={studentSignUpModal}
+        onClose={() => setStudentSignUpModal(false)}
+      >
         <DialogTitle>Step 1 of 5</DialogTitle>
         <h2 className="text-2xl px-6">Student sign up</h2>
         <DialogContent>
@@ -76,8 +68,8 @@ export default function FormDialog() {
           </LocalizationProvider>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button>Cancel</Button>
+          <Button>Next</Button>
         </DialogActions>
       </Dialog>
     </div>
