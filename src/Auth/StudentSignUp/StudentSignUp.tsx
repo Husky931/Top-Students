@@ -1,11 +1,14 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { GlobalData } from "../../state/globalState"
 import Button from "@mui/material/Button"
 import Dialog from "@mui/material/Dialog"
 import DialogActions from "@mui/material/DialogActions"
 import DialogContent from "@mui/material/DialogContent"
 import DialogTitle from "@mui/material/DialogTitle"
+import Alert from "@mui/material/Alert"
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline"
 import { Step1 } from "./Step1"
+import { Step2 } from "./Step2"
 
 export default function StudentSignUp() {
   const { studentSignUpModal, setStudentSignUpModal } = useContext(GlobalData)
@@ -14,6 +17,26 @@ export default function StudentSignUp() {
   const [fname, setFname] = useState<string | undefined>(undefined)
   const [lname, setLname] = useState<string | undefined>(undefined)
   const [dateBirth, setDateBirth] = useState(undefined)
+  const [uniName, setUniName] = useState<string>(undefined)
+  const [uniCountry, setUniCountry] = useState<string>(undefined)
+  const [uniCity, setUniCity] = useState<string>(undefined)
+  const [uniMayor, setUniMayor] = useState<string>(undefined)
+
+  const nextStep = () => {
+    setStep(step + 1)
+  }
+  const prevStep = () => {
+    setStep(step - 1)
+  }
+
+  function sentStudentInfo() {
+    // if sent to server is succesful
+    // display Success popUp
+    // disable Next/Previous buttons while popUP is active
+    // when user clicks OK do setStudentSignUpModal(false) and transfer user to news feed page
+  }
+
+  useEffect(() => {}, [step])
 
   return (
     <div>
@@ -21,7 +44,7 @@ export default function StudentSignUp() {
         open={studentSignUpModal}
         onClose={() => setStudentSignUpModal(false)}
       >
-        <DialogTitle>Step {step} of 5</DialogTitle>
+        <DialogTitle>Step {step} of 2</DialogTitle>
         <h2 className="text-2xl px-6">Student sign up</h2>
         <DialogContent>
           {step === 1 && (
@@ -31,12 +54,30 @@ export default function StudentSignUp() {
               setDateBirth={setDateBirth}
             />
           )}
+          {step === 2 && (
+            <Step2
+              setUniName={setUniName}
+              setUniCountry={setUniCountry}
+              setUniCity={setUniCity}
+              setUniMayor={setUniMayor}
+            />
+          )}
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => console.log(fname, lname, dateBirth)}>
-            Cancel
+          <Button
+            onClick={() => {
+              step === 1 ? setStudentSignUpModal(false) : prevStep()
+            }}
+          >
+            {step === 1 ? "Cancel" : "Previous"}
           </Button>
-          <Button onClick={() => setStep(step++)}>Next</Button>
+          <Button
+            onClick={() => {
+              step !== 2 ? nextStep() : sentStudentInfo()
+            }}
+          >
+            {step === 2 ? "Finish" : "Next"}
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
