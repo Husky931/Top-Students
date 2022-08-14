@@ -6,13 +6,19 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { useWindowSize } from "react-use"
 import { Button, DialogActions, DialogContent } from "@mui/material"
 
-export const Step1 = ({ setFname, setLname, setDateBirth }) => {
+export const Step1 = ({
+  setFname,
+  setLname,
+  setDateBirth,
+  fname,
+  lname,
+  dateBirth
+}) => {
   const { width, height } = useWindowSize()
 
   return (
     <>
       <TextField
-        autoComplete="fname"
         name="firstName"
         required
         fullWidth
@@ -20,17 +26,17 @@ export const Step1 = ({ setFname, setLname, setDateBirth }) => {
         label="First Name"
         autoFocus
         sx={{ marginBottom: "20px" }}
+        value={fname}
         onChange={(e) => setFname(e.target.value)}
       />
       <TextField
-        autoComplete="lname"
         name="lastName"
         required
         fullWidth
         id="lastName"
         label="Last Name"
-        autoFocus
         sx={{ marginBottom: "20px" }}
+        value={lname}
         onChange={(e) => setLname(e.target.value)}
       />
       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -40,6 +46,7 @@ export const Step1 = ({ setFname, setLname, setDateBirth }) => {
             inputFormat="MM/dd/yyyy"
             renderInput={(params) => <TextField {...params} />}
             onChange={(e) => setDateBirth(e)}
+            value={dateBirth}
             sx={{ marginBottom: "20px" }}
           />
         ) : (
@@ -48,6 +55,7 @@ export const Step1 = ({ setFname, setLname, setDateBirth }) => {
             inputFormat="MM/dd/yyyy"
             renderInput={(params) => <TextField {...params} />}
             onChange={(e) => setDateBirth(e)}
+            value={dateBirth}
             sx={{ marginBottom: "20px" }}
           />
         )}

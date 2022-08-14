@@ -2,9 +2,13 @@ import TextField from "@mui/material/TextField"
 
 export const Step2 = ({
   setUniName,
+  uniName,
   setUniCountry,
+  uniCountry,
   setUniCity,
-  setUniMayor
+  uniCity,
+  setUniMayor,
+  uniMayor
 }) => {
   return (
     <>
@@ -16,6 +20,7 @@ export const Step2 = ({
         label="University Name"
         autoFocus
         sx={{ marginBottom: "20px" }}
+        value={uniName}
         onChange={(e) => setUniName(e.target.value)}
       />
       <TextField
@@ -24,8 +29,8 @@ export const Step2 = ({
         fullWidth
         id="lastName"
         label="University Country"
-        autoFocus
         sx={{ marginBottom: "20px" }}
+        value={uniCountry}
         onChange={(e) => setUniCountry(e.target.value)}
       />
       <TextField
@@ -34,8 +39,8 @@ export const Step2 = ({
         fullWidth
         id="universitycity"
         label="University City"
-        autoFocus
         sx={{ marginBottom: "20px" }}
+        value={uniCity}
         onChange={(e) => setUniCity(e.target.value)}
       />
       <TextField
@@ -45,8 +50,8 @@ export const Step2 = ({
         fullWidth
         id="universitymayor"
         label="University Mayor"
-        autoFocus
         sx={{ marginBottom: "20px" }}
+        value={uniMayor}
         onChange={(e) => setUniMayor(e.target.value)}
       />
     </>

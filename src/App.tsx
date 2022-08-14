@@ -5,6 +5,7 @@ import Navbar from "./navigation/navbar"
 import { Footer } from "./navigation/Footer"
 import StudentSignUp from "./Auth/StudentSignUp/StudentSignUp"
 import { GlobalData } from "./state/globalState"
+import { Success } from "./components/Success"
 
 const App = () => {
   const [studentSignUpModal, setStudentSignUpModal] = useState(false)
@@ -16,6 +17,7 @@ const App = () => {
       >
         <StudentSignUp />
         <Navbar />
+        <Success />
         <Landing />
         <Footer />
       </GlobalData.Provider>
