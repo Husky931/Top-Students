@@ -10,6 +10,9 @@ import { Success } from "./components/Success"
 const App = () => {
   const [studentSignUpModal, setStudentSignUpModal] = useState(false)
 
+  const myObj = {}
+  const smth: string[] = []
+
   return (
     <>
       <GlobalData.Provider
@@ -17,7 +20,7 @@ const App = () => {
       >
         <StudentSignUp />
         <Navbar />
-        <Success />
+        {/* <Success /> */}
         <Landing />
         <Footer />
       </GlobalData.Provider>

@@ -42,7 +42,7 @@ export const Step1 = ({
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         {width > 840 ? (
           <DesktopDatePicker
-            label="Date desktop"
+            label="Date of birth"
             inputFormat="MM/dd/yyyy"
             renderInput={(params) => <TextField {...params} />}
             onChange={(e) => setDateBirth(e)}
@@ -51,7 +51,7 @@ export const Step1 = ({
           />
         ) : (
           <MobileDatePicker
-            label="Date mobile"
+            label="Date of birth"
             inputFormat="MM/dd/yyyy"
             renderInput={(params) => <TextField {...params} />}
             onChange={(e) => setDateBirth(e)}

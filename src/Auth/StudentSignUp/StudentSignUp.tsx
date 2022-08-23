@@ -31,11 +31,7 @@ export default function StudentSignUp() {
     setStep(step - 1)
   }
 
-  function sentStudentInfo() {
-    // if sent to server is succesful
-    // display Success popUp
-    // disable Next/Previous buttons while popUP is active
-    // when user clicks OK do setStudentSignUpModal(false) and transfer user to news feed page
+  async function submitRegister() {
     if (
       fname === "" ||
       lname === "" ||
@@ -53,7 +49,27 @@ export default function StudentSignUp() {
     if (password !== confirmPass) {
       console.log("password dont match")
     }
-    console.log("here")
+
+    const bla = await fetch("http://localhost:1337/api/auth/local/register", {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        password: password,
+        email: email,
+        username: email
+      }),
+      method: "POST"
+    })
+    bla.json().then((data) => console.log(data))
+    // bla.json().then((data) => console.log(data))
+
+    console.log("mua")
+
+    // if sent to server is succesful
+    // display Success popUp
+    // disable Next/Previous buttons while popUP is active
+    // when user clicks OK do setStudentSignUpModal(false) and transfer user to news feed page
   }
 
   useEffect(() => {}, [step])
@@ -110,7 +126,7 @@ export default function StudentSignUp() {
           </Button>
           <Button
             onClick={() => {
-              step !== 3 ? nextStep() : sentStudentInfo()
+              step !== 3 ? nextStep() : submitRegister()
             }}
           >
             {step === 3 ? "Finish" : "Next"}
