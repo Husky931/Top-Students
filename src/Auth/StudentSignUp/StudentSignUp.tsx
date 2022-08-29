@@ -50,17 +50,20 @@ export default function StudentSignUp() {
       console.log("password dont match")
     }
 
-    const bla = await fetch("http://localhost:1337/api/auth/local/register", {
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        password: password,
-        email: email,
-        username: email
-      }),
-      method: "POST"
-    })
+    const bla = await fetch(
+      `${import.meta.env.VITE_BASE_URL}auth/local/register`,
+      {
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          password: password,
+          email: email,
+          username: email
+        }),
+        method: "POST"
+      }
+    )
     bla.json().then((data) => console.log(data))
     // bla.json().then((data) => console.log(data))
 

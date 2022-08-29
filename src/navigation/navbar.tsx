@@ -32,7 +32,7 @@ export default function CustomizedMenus(props: any) {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        Options
+        Sign in
       </Button>
       <Menu
         elevation={0}
